@@ -4,19 +4,21 @@ import streamlit as st
 import plotly.express as px
 
 
-GITHUB_ROOT = "https://raw.githubusercontent.com/zxdawn/Arctic-lightning-NO2-app/data/"
+# GITHUB_ROOT = "https://raw.githubusercontent.com/zxdawn/Arctic-lightning-NO2-app/data/"
 
 @st.experimental_singleton
-def read_data():
-    github_url = GITHUB_ROOT+'S5P_LNO2_grid_product.nc'
-    with urllib.request.urlopen(github_url) as open_file:  # type: ignore
-        return xr.open_dataset(open_file)
+def read_data(filename):
+    return xr.open_dataset(filename)
+
+    # github_url = GITHUB_ROOT+'S5P_LNO2_grid_product.nc'
+    # with urllib.request.urlopen(github_url) as open_file:  # type: ignore
+    #     return xr.open_dataset(open_file)
 
 
 class view_product:
     '''Plot the tropomi no2 with lightning images'''
     def __init__(self, filename):
-        self.ds = xr.open_dataset(filename)
+        self.ds = read_data(filename)
     
     def set_page(self):
         # decrease pad to page top
