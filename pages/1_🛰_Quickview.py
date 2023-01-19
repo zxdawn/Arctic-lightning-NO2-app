@@ -1,13 +1,16 @@
+import urllib
 import xarray as xr
 import streamlit as st
 import plotly.express as px
-import plotly.graph_objects as go
 
+
+GITHUB_ROOT = "https://raw.githubusercontent.com/zxdawn/Arctic-lightning-NO2-app/data/"
 
 @st.experimental_singleton
 def read_data():
-    ds = xr.open_dataset('./data/S5P_LNO2_grid_product.nc')
-    return ds
+    github_url = GITHUB_ROOT+'S5P_LNO2_grid_product.nc'
+    with urllib.request.urlopen(github_url) as open_file:  # type: ignore
+        return xr.open_dataset(open_file)
 
 
 class view_product:
@@ -16,8 +19,8 @@ class view_product:
         self.ds = xr.open_dataset(filename)
     
     def set_page(self):
-        st.set_page_config(layout="wide")
-        st.write('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
+        # decrease pad to page top
+        st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 
         # application title
         st.title(':lightning_cloud: :orange[Lightning NO$_2$ in the Arctic]')
@@ -34,14 +37,17 @@ class view_product:
 
 
     def set_slider(self):
-        st.sidebar.header("Drag the sliders")
-    
         # get the case nums
         case_list = list(sorted(set([s.split('_')[0] for s in self.ds['orbit'].values])))
 
         # add slider of cases
+        st.sidebar.success("Select case (Defalut is 11).")
         self.case_num = st.sidebar.slider('Case No.', min_value=0, max_value=int(case_list[-1])-1, value=11) # default: case 11
-        self.plev = st.sidebar.selectbox('Pressure level (hPa) \n of lightning tracer', (300, 500, 700), index=1) # default: 500 hPa
+
+        self.plev = st.sidebar.selectbox('Pressure level (hPa) \n of lightning tracer', (300, 500, 700), index=2) # default: 700 hPa
+        st.sidebar.info("Lightning tracer is released at the detected location \n\
+                        and transported by horizontal advection, \n \
+                        also known as isobaric forward trajectories.")
 
         # increase the font size of slider
         st.markdown(
@@ -79,7 +85,7 @@ class view_product:
                         facet_col_wrap=2,
                         facet_col_spacing=0.05,
                         color_continuous_scale='Thermal', origin='lower',
-                        # labels={'color': 'value'},
+                        labels={'color': 'value'},
                         width=950, height=700,
                         # zmin=0, zmax=no2_max
                         )
@@ -123,7 +129,7 @@ class view_product:
                                     'title': r'umol m<sup>2</sup>',
                                     },
                         'cmin': 0,
-                        'cmin': 30,
+                        'cmax': 30,
                         },
             coloraxis2={
                         'colorbar': {'x': 1.1,
@@ -132,6 +138,7 @@ class view_product:
                                     'title': r'umol m<sup>2</sup>'
                                     },
                         'cmin': 0,
+                        'cmax': 30,
                         'colorscale': fig.layout['coloraxis']['colorscale'],
                         },
             coloraxis3={'colorbar': {'x': -0.3,
@@ -139,12 +146,17 @@ class view_product:
                                      'y': 0.3,
                                      'title': 'hPa'
                         },
-                        'colorscale': 'Blues',
+                        'cmin': ds_sel['cloud_pressure_crb'].min().item(),
+                        'cmax': ds_sel['cloud_pressure_crb'].max().item(),
+                        # 'cmax': 700,
+                        'colorscale': 'Ice_r',
                         },
             coloraxis4={'colorbar': {'x': 1.1,
                                      'len': 0.5,
                                      'y': 0.3,
                                      },
+                        'cmin': ds_sel['lightning_counts'].min().item(),
+                        'cmax': ds_sel['lightning_counts'].max().item(),
                         'colorscale': 'matter',
             },
         )
