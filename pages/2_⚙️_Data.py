@@ -8,7 +8,7 @@ st.title(':orange[Data Sources]')
 
 st.markdown('### Plotted Data')
 st.markdown('The NetCDF data plotted in the "Quickview" Page is hosted on \
-            [GitHub](https://github.com/zxdawn/Arctic-lightning-NO2/blob/main/data/S5P_LNO2_grid_product.nc). \
+            [GitHub](https://github.com/zxdawn/Arctic-lightning-NO2-app/blob/main/data/S5P_LNO2_grid_product.nc). \
             Here are some links of related source codes: \
             [s5p_lno2_grid_product.py](https://github.com/zxdawn/S5P-LNO2/blob/main/main/s5p_lno2_grid_product.py) \
             and [streamlit app](https://github.com/zxdawn/Arctic-lightning-NO2-app).')
