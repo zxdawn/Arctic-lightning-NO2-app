@@ -50,8 +50,8 @@ class view_product:
         st.sidebar.success("Select case (Defalut is 11).")
         self.case_num = st.sidebar.slider('Case No.', min_value=0, max_value=int(case_list[-1])-1, value=11) # default: case 11
 
-        self.plev = st.sidebar.selectbox('Pressure level (hPa) \n of lightning tracer', (300, 500, 700), index=2) # default: 700 hPa
-        st.sidebar.info("Lightning tracer is released at the detected location \n\
+        self.plev = st.sidebar.selectbox('Pressure level (hPa) \n of lightning tracers', (300, 500, 700), index=2) # default: 700 hPa
+        st.sidebar.info("Lightning tracers are released at detected locations \n\
                         and transported by horizontal advection, \n \
                         also known as isobaric forward trajectories.")
 
