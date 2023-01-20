@@ -6,3 +6,4 @@ This repo is the source code of a streamlit website where you can interactively 
 
 Zhang et al., **Spaceborne observations of lightning NO2 in the Arctic**, *Environ. Sci. Technol.* In Review.
 
+<img src="https://github.com/zxdawn/Arctic-lightning-NO2-app/blob/main/imgs/homepage.jpg" width="700">
