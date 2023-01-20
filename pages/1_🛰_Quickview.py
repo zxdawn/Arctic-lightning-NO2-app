@@ -1,6 +1,7 @@
 import urllib
 import xarray as xr
 import streamlit as st
+import streamlit_analytics
 import plotly.express as px
 
 st.set_page_config(
@@ -186,7 +187,9 @@ def main():
     filename = './data/S5P_LNO2_grid_product.nc'
     product = view_product(filename)
     product.set_page()
-    product.set_slider()
+    with streamlit_analytics.track():
+        # track the slider
+        product.set_slider()
     product.plot_data()
 
 
