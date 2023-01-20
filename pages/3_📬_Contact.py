@@ -14,4 +14,4 @@ st.info('The arctic-lightning-no2 website is maintained by [Xin Zhang](https://d
          please feel free to [drop an email](mailto:xinzhang1215@gmail.com) \
          or submit issues on the [GitHub page](https://github.com/zxdawn/Arctic-lightning-NO2-app/issues).')
 
-st.image('https://github.com/zxdawn/zxdawn/blob/main/imgs/cloud.jpg?raw=true')
+st.image('./imgs/cloud.jpg')

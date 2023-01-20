@@ -32,4 +32,4 @@ st.markdown('We used our own Arctic TROPOMI lightning NO$_2$ data to estimate th
 st.markdown('A detailed description of the methodology can be found in our ES&T paper "*Spaceborne observations of lightning NO$_2$ in the Arctic*" (In Review).')
 st.markdown('Hope this app could help you understand the importance of lightning NO$_2$ and inspire some new ideas.')
 
-st.image('https://github.com/zxdawn/Arctic-lightning-NO2-app/blob/main/imgs/homepage.jpg?raw=true')
+st.image('./imgs/homepage.jpg')
