@@ -24,8 +24,8 @@ st.markdown('This website displays the **lightning NO$_2$** products observed by
                 [VAISALA GLD360](https://www.vaisala.com/en/products/systems/lightning/gld360) data. \
              These data are processed and regridded to a NetCDF product of 0.1 $\\times$ 0.1 degrees, \
                 making them more accessible for viewing and analysis.')
-st.markdown('Please feel free to explore the interactive images in the **🛰 Quickview page** (on the left slidebar).')
-            #  <a href="https://arctic-lightning-no2.streamlit.app/Quickview" target="_self">Quickview</a> page.', unsafe_allow_html=True)
+st.markdown('Please feel free to explore the interactive images in the \
+             <a href="https://arctic-lightning-no2.streamlit.app/Quickview" target="_self">**🛰 Quickview page**</a>.', unsafe_allow_html=True)
 
 st.markdown('### Want to know more?')
 st.markdown('We used our own Arctic TROPOMI lightning NO$_2$ data to estimate the **lifetime and production efficiency of lightning NO$_2$**.')

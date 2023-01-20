@@ -1,6 +1,11 @@
 import streamlit as st
 from PIL import Image
 
+st.set_page_config(
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 # decrease pad to page top
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 

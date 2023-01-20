@@ -3,6 +3,10 @@ import xarray as xr
 import streamlit as st
 import plotly.express as px
 
+st.set_page_config(
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 # GITHUB_ROOT = "https://raw.githubusercontent.com/zxdawn/Arctic-lightning-NO2-app/data/"
 
