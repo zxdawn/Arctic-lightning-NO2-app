@@ -1,4 +1,5 @@
-streamlit==1.16.0
+streamlit==1.17.0
+streamlit_analytics
 netCDF4
 xarray
 plotly
