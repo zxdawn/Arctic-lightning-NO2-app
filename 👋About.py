@@ -29,7 +29,7 @@ st.markdown('Please feel free to explore the interactive images in the \
 
 st.markdown('### Want to know more?')
 st.markdown('We used our own Arctic TROPOMI lightning NO$_2$ data to estimate the **lifetime and production efficiency of lightning NO$_2$**.')
-st.markdown('A detailed description of the methodology can be found in our ES&T paper "*Spaceborne observations of lightning NO$_2$ in the Arctic*" (In Review).')
+st.markdown('A detailed description of the methodology can be found in our ES&T paper ["*Spaceborne observations of lightning NO$_2$ in the Arctic*"](https://pubs.acs.org/doi/10.1021/acs.est.2c07988).')
 st.markdown('Hope this app could help you understand the importance of lightning NO$_2$ and inspire some new ideas.')
 
 st.image('./imgs/homepage.jpg')
