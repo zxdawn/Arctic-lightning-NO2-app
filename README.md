@@ -8,3 +8,4 @@ Zhang et al., **Spaceborne observations of lightning NO2 in the Arctic**, *Envir
 
 <a href="https://arctic-lightning-no2.streamlit.app/"><img src="https://github.com/zxdawn/Arctic-lightning-NO2-app/blob/main/imgs/homepage.jpg" width="700"></a>
 
+<a href="https://arctic-lightning-no2.streamlit.app/"><img src="https://github.com/zxdawn/Arctic-lightning-NO2-app/blob/main/imgs/lightning_no2_arctic.gif" width="700"></a>
